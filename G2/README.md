@@ -1,6 +1,6 @@
-# Group [No.]
+# Group 2
 
 ## Contact
 
-- Trainer: [NAME] [MAIL]
-- Assistant: [NAME] [MAIL]
+- Trainer: Ilija Mitev [ilija.mitev3@gmail.com]
+- Assistant: Frosina Stamenkovska [stamenkovskaf@gmail.com]
