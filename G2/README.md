@@ -2,5 +2,5 @@
 
 ## Contact
 
-- Trainer: Ilija Mitev [ilija.mitev3@gmail.com]
-- Assistant: Frosina Stamenkovska [stamenkovskaf@gmail.com]
+- Trainer: Ilija Mitev [ ilija.mitev3@gmail.com ]
+- Assistant: Frosina Stamenkovska [ stamenkovskaf@gmail.com ]
