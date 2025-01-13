@@ -109,3 +109,6 @@ function cleanArrayOnlyThrutyValues(arr) {
 
 let result5 = cleanArrayOnlyThrutyValues(test);
 console.log(result5);
+
+
+let rgb = Math.floor(Math.random() * 255) // -> 234
