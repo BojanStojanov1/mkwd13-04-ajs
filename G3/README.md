@@ -2,5 +2,5 @@
 
 ## Contact
 
-- Trainer: [NAME] [MAIL]
-- Assistant: [NAME] [MAIL]
+- Trainer: [Aneta Stankovska] [anetastankovskaane@gmail.com]
+- Assistant: [Ivan Apostolovski] [ivan.apostolovski@gmail.com]
