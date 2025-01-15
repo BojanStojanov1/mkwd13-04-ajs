@@ -54,20 +54,35 @@ This document lists a series of exercises designed to practice basic DOM manipul
 
 ---
 
-## Exercise 5: Move an Element to a New Parent
+## Exercise 5: Expandable FAQ Section
 
 **Requirements:**
 
 - Create an HTML page with:
-  - Two `<div>` containers with IDs `container1` and `container2`.
-  - A `<p>` element with some text inside `container1`.
-  - A button labeled "Move Paragraph".
-- When the button is clicked:
-  - Move the `<p>` element from `container1` to `container2`.
+  - A list of frequently asked questions (FAQs).
+  - Each FAQ item should consist of:
+    - A question element (e.g., `<h3>` or `<button>`).
+    - An answer element (e.g., `<p>`) that is initially hidden.
+- When a question is clicked:
+  - Toggle the visibility of its corresponding answer.
+  - Optionally, style the question to indicate it is expanded or collapsed.
 
 ---
 
-## Exercise 6: Fetch and Display Posts from API
+## Exercise 6: Simple Fetch Refresher – Random Joke
+
+**Requirements:**
+
+- Create an HTML page with:
+  - A `<div id="jokeContainer"></div>` to display a joke.
+  - A button labeled "Get a Random Joke".
+- When the button is clicked:
+  - Use the [Official Joke API](https://official-joke-api.appspot.com/random_joke) to fetch a random joke.
+  - Display the joke's setup and punchline inside the `jokeContainer`.
+
+---
+
+## Exercise 7: Fetch and Display Posts from API
 
 **Requirements:**
 
