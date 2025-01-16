@@ -2,13 +2,13 @@ body {
   font-family: sans-serif;
 }
 
-.form-group {
-  display: grid;
+.student-form {
   width: 300px;
+  display: grid;
   gap: 10px;
 }
 
-.form-group button {
-  width: 150px;
+.student-form button {
   justify-self: center;
+  width: 120px;
 }

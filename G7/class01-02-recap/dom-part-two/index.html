@@ -10,13 +10,28 @@
   <body>
     <section>
       <h2>Title Generator</h2>
-      <div>
+      <div class="form-group">
         <input placeholder="Color" id="colorInput" type="text" />
         <input placeholder="Font Size" id="fontSizeInput" type="number" />
         <input type="text" placeholder="Text" id="textInput" />
         <button type="button" id="createBtn">CREATE!</button>
       </div>
       <div class="headings-container"></div>
+    </section>
+    <section>
+      <h2>List Generator</h2>
+      <button id="genNameArrayBtn">Generate name array!</button>
+      <ul class="name-arr-list"></ul>
+    </section>
+    <section>
+      <h2>Dynamic List Generator</h2>
+      <div class="form-group">
+        <input type="text" placeholder="Color" id="colorListInput" />
+        <input type="number" placeholder="Font Size" id="fontSizeListInput" />
+        <textarea placeholder="Items" id="itemsListInput"></textarea>
+        <button type="button" id="createListBtn">CREATE!</button>
+      </div>
+      <div class="lists-container"></div>
     </section>
   </body>
 </html>
