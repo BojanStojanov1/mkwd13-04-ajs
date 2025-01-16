@@ -1,0 +1,16 @@
+.answer {
+  display: none;
+  margin: 0 0 1em 0;
+}
+
+.question {
+  cursor: pointer;
+  margin: 0;
+  padding: 0.5em;
+  background-color: #f0f0f0;
+}
+
+.question.expanded {
+  background-color: #d0d0d0;
+  font-weight: bold;
+}
