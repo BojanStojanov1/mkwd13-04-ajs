@@ -1,0 +1,12 @@
+body {
+  font-family: sans-serif;
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  grid-template-rows: max-content max-content;
+  place-items: center;
+}
+
+.color-display {
+  filter: invert(1);
+}

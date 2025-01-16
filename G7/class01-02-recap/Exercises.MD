@@ -52,7 +52,7 @@ const testArr = [
   - FontSize
   - Text
 - Create a button for generating titles
-- When the button is clicked generate a new `h1` element with the color, font size, and text from the inputs
+- When the button is clicked generate a new `h1` or `h2` element with the color, font size, and text from the inputs
 
 ## Student class
 
