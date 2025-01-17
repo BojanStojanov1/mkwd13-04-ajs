@@ -54,7 +54,7 @@ const testArr = [
 - Create a button for generating titles
 - When the button is clicked generate a new `h1` or `h2` element with the color, font size, and text from the inputs
 
-## Student class
+## Student class/constructor
 
 - Create a class for Student objects with:
   - Properties:
@@ -88,6 +88,8 @@ const testArr = [
 - When the button is clicked generate a new ul element with the color, font size, and items from the inputs
 
 > Items should be added separated by "," in the input
+
+"apples,oranges,pears,bananas" => ["apples", "oranges", "pears", "bananas"]
 
 ## Create a student registry page
 

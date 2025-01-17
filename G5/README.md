@@ -1,6 +1,6 @@
-# Group [No.]
+# Group [No. G5]
 
 ## Contact
 
-- Trainer: [NAME] [MAIL]
-- Assistant: [NAME] [MAIL]
+- Trainer: [Gjorge Dimitrov] [dimitrov.gjorge@protonmail.com]
+- Assistant: [Aleksandar Milovski] [aleksandarmilovski1@gmail.com]

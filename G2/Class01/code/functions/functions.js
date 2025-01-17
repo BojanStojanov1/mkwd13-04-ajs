@@ -53,6 +53,8 @@ function printStudents(studentsArray) {
         console.log(`${student.id} ${student.firstName}`);
     }
 }
+// const test = 123;
+// test = 32432; // ERROR
 
 printStudents(students);
 
