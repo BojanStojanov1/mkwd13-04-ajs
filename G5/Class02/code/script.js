@@ -126,12 +126,15 @@ function fetchPeople( ) {
     })
     .then(function(result) {
         // THIS IS THE JSON RESULT
-        console.log(result);
+        // console.log(result);
 
         let parsedResult = JSON.parse(result);
         console.log(parsedResult);
 
         let swapiPeople = parsedResult.results;
+        console.log(swapiPeople)
+
+        fetchDivResult.innerHTML = ''
         // FUNCTION TO PRINT RESULT SHOULD BE HERE
         for(let i = 0; i < swapiPeople.length; i++){
             fetchDivResult.innerHTML += `<p>${swapiPeople[i].name}</p>`
@@ -155,3 +158,28 @@ fetchBtn.addEventListener('click', function(){
 
 // Link: https://swapi.dev/api/people/1
 // Print the name, height and mass on the screen
+
+function fetchPerson(){
+    fetch("https://swapi.dev/api/people/1")
+    .then(function(response) {
+
+        return response.text() // RETURNING THE JSON VALUE OF THE RESPONSE
+    })
+    .then(function(result){
+        // result will be the stringified json returned from the first then
+
+        let parsedResult = JSON.parse(result);
+        console.log(parsedResult)
+
+        console.log(parsedResult.name, parsedResult.height, parsedResult.mass)
+
+        for(let i = 0; i < parsedResult.films.length; i++){
+            console.log(parsedResult.films[i])
+        }
+        // for(let i = 0; i < parsedResult.people.length; i++){
+        //     fetchDivResult.innerHTML += `<p>${swapiPeople[i].name}</p>`
+        // }
+    })
+}
+
+fetchPerson()
