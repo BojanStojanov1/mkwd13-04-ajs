@@ -15,17 +15,50 @@ let todoInMemory = {
 
 let actions = {
     complete: 'complete',
-    remove: 'remove'
+    remove: 'remove',
+    edit: 'edit'
 }
 
 let form = document.getElementById('add-todo-form');
 let content = document.getElementById('content');
+let saveBtn = document.getElementById('save-todo');
+let editBtn = document.getElementById('edit-todo');
 
 // Functions
 function createTodo(title, description) {
     let todo = new Todo(todoInMemory.todoIdCounter, title, description);
     todoInMemory.todoIdCounter += 1;
     return todo;
+}
+
+function editTodo(id) {
+    showHideElement(form, false);
+    let todoEdit = {};
+    for(let todo of todoInMemory.todos) {
+        if (todo.id === id) {
+            todoEdit = todo;
+            break;
+        }
+    }
+
+    let inputs = form.getElementsByTagName('input');
+    for (let input of inputs) {
+        if (input.name === 'title') {
+            input.value = todoEdit.title;
+            continue;
+        }
+
+        if (input.name === 'description') {
+            input.value = todoEdit.description;
+            continue;
+        }
+    }
+
+    // hide save btn
+    showHideElement(saveBtn, true);
+    // show edit btn
+    showHideElement(editBtn, false);
+    editBtn.value = id;
 }
 
 function resetInputs(parentElement) {
@@ -66,6 +99,7 @@ function showTodos(element) {
                 <span>${todo.title}</span>
                 <span>${todo.description}</span>
                 ${completeBtn}
+                <button type="button" name="${actions.edit}" value="${todo.id}">Edit</button>
                 <button type="button" name="${actions.remove}" value="${todo.id}">Remove</button>
             </li>
             `;
@@ -136,6 +170,7 @@ function removeErrorMessage() {
 document.querySelector('#add-todo')
     .addEventListener('click', function () {
         showHideElement(form, false);
+        showHideElement(editBtn, true);
     });
 
 document.getElementById('reset-todo')
@@ -189,5 +224,24 @@ content.addEventListener('click', function (event) {
             removeTodo(Number(id));
             showTodos(content);
             break;
+        case actions.edit:
+            editTodo(Number(id));
+            showTodos(content);
+            break;
     }
+});
+
+editBtn.addEventListener('click', function(event) {
+    let inputs = getValuesFromInputs(form);
+    let id = Number(event.currentTarget.value);
+    for (let todo of todoInMemory.todos) {
+        if (todo.id === id) {
+            todo.title = inputs.title;
+            todo.description = inputs.description;
+        }
+    }
+    showHideElement(saveBtn, false);
+    showHideElement(editBtn, true);
+    showHideElement(form, true);
+    showTodos(content);
 });
