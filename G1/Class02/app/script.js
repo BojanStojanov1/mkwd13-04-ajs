@@ -13,6 +13,7 @@ let todoInMemory = {
 };
 
 let form = document.getElementById('add-todo-form');
+let content = document.getElementById('content');
 
 // Functions
 function createTodo(title, description) {
@@ -46,6 +47,37 @@ function showHideElement(element, isHiden) {
     element.style.display = isHiden ? 'none' : 'block';
 }
 
+function showTodos(element) {
+    let html = '<ol>';
+    for (let todo of todoInMemory.todos) {
+        let completeBtn = '';
+        if (!todo.isComplete) {
+            completeBtn = `<button type="button" name="complete" value="${todo.id}">Complete</button>`;
+        }
+
+        let li = `
+            <li ${todo.isComplete ? 'style="background-color: yellow;"' : ''}>
+                <span>${todo.title}</span>
+                <span>${todo.description}</span>
+                ${completeBtn}
+                <button type="button" name="remove" value="${todo.id}">Remove</button>
+            </li>
+            `;
+        html += li;
+    }
+    html += '</ol>';
+    element.innerHTML = html;
+}
+
+function completeTodo(id) {
+    for (let todo of todoInMemory.todos) {
+        if (todo.id === id) {
+            todo.isComplete = true;
+            break;
+        }
+    }
+}
+
 // EVENTS
 document.querySelector('#add-todo')
     .addEventListener('click', function () {
@@ -63,7 +95,23 @@ document.getElementById('save-todo')
         let todo = createTodo(inputValues.title, inputValues.description);
         todoInMemory.todos.push(todo);
         resetInputs(form);
-        form.style.display = 'none';
         console.log(todoInMemory.todos);
         showHideElement(form, true);
     });
+
+document.getElementById('show-todo')
+    .addEventListener('click', function () {
+        showTodos(content);
+    });
+
+content.addEventListener('click', function (event) {
+    event.stopPropagation();
+    let action = event.target.name; // could be complete or remove
+    let id = event.target.value;
+    if (action === 'complete') {
+        completeTodo(Number(id));
+        showTodos(content);
+    }
+    console.log(event.target.name);
+    console.log(event.target.value);
+});
