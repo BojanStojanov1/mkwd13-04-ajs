@@ -15,12 +15,24 @@ document.getElementById('next')
         getSwapiPeoples(url);
     });
 
+document.getElementById('content')
+    .addEventListener('click', function(event) {
+        event.stopPropagation();
+
+        if (event.target.tagName === 'BUTTON') {
+            // console.log(event.target);
+            let url = event.target.value;
+            getSwapiCharacter(url);
+        }
+    });
+
 function showSwapiPeople(people) {
     let html = '<ol>';
     for(let person of people) {
         let li = `
             <li>
                 ${person.name} has appeared in ${person.films.length} films
+                <button type='button' value=${person.url}>More details</button>
             </li>
         `;
         html += li;
@@ -62,4 +74,23 @@ function getSwapiPeoples(url) {
         showSwapiPeople(data.results);
         showPrevNextPageBtn(data);
     });
+}
+
+function getSwapiCharacter(url) {
+    fetch(url)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            console.log(data);
+            showCharacterDetails(data);
+        });
+}
+
+function showCharacterDetails(character) {
+    let message = `Hello my name is ${character.name}, im ${character.height}cm tall 
+    i weight ${character.mass}kg. Im born ${character.birth_year} year.
+    `;
+    document.getElementById('char-content')
+        .innerText = message;
 }
