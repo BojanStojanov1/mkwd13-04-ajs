@@ -29,8 +29,8 @@ When the page is loaded, fetch 10 products from the provided API.
 Render 10 product cards on the screen. 
 <br>Each product card should include:  
 - **Image** : The product's image displayed in a visually appealing size.  
-- **Title** : The product's title as a heading (**h3** tag).  
-- **Description** : The product's description in a paragraph (**p** tag).  
+- **Title** : The product's title as a heading.  
+- **Description** : The product's description in a paragraph.  
 
 **URL:** [https://dummyjson.com/products?limit=10](https://dummyjson.com/products?limit=10)  
 **Documentation:** [https://dummyjson.com/docs](https://dummyjson.com/docs)
