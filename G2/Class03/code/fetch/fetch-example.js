@@ -2,11 +2,9 @@ console.log("");
 console.log("================ Fetch ================");
 // => built-in JavaScript function used to make HTTP requests
 
-
-
 // ============ Single Joke Example ============
 
-// ===> First step when working with APIs is to actually now the API and read its documentation !!!
+// ===> First step when working with APIs is to actually know the API and read its documentation !!!
 // JOKE API: https://v2.jokeapi.dev
 // https://v2.jokeapi.dev/joke/Programming?type=single
 
