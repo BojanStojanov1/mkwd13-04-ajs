@@ -117,3 +117,92 @@ const combination = numbers.map((number) => {
     }
 });
 
+consoleDivider('HIGH ORDER FUNCTION sort');
+
+let digits = [2, 5, 1, 10, 3, 8];
+console.log(digits);
+
+digits.sort((a, b) => {
+    // console.log("a", a); // a is the element of the current iteration
+    // console.log("b", b) // b is the next element next to the current iteration (index + 1)
+    return a - b
+}) // Ascending
+console.log(digits);
+
+digits.sort((a, b) => b - a) // Descending
+console.log(digits);
+
+let words = ["Pineapple", "Starwberry", "Apple", "Fig"];
+words.sort();
+console.log(words);
+
+words.sort((a, b) => a.length - b.length);
+console.log(words);
+
+words.sort((a, b) => a.localeCompare(b)) // The default sorting is alphabetically
+console.log(words);
+
+consoleDivider('PASS BY REFERENCE / PASS BY VALUE');
+
+const products = [
+    {name: "Lenovo Ideapad", price: 750},
+    {name: "Asus Vivobook", price: 400},
+    {name: "Mac", price: 1400},
+    {name: "Lenovo Thinkpad", price: 1200}
+];
+
+// THE PROBLEM
+// const productsToBeSorted = products;
+
+// productsToBeSorted.sort((productA, produbctB) => {
+//     return productA.price - produbctB.price
+// });
+
+// console.log(productsToBeSorted);
+// console.log('------------');
+// console.log(products);
+
+// THE SOLUTION
+
+// WILL RETURN NEW ARRAY IN MEMORY
+function copyArray(array){
+    let copyOfOriginal = [];
+
+    array.forEach((element) => copyOfOriginal.push(element));
+
+    return copyOfOriginal;
+};
+
+// PASS BY VALUE
+// Copying version #1
+// const productsToBeSorted = copyArray(products); // working
+// Copying version #2
+// ... => SPREAD OPERATOR
+const productsToBeSorted = [...products]; // WILL CREATE NEW COPY OF THE ARRAY
+productsToBeSorted.sort((productA, produbctB) => {
+    return productA.price - produbctB.price
+});
+
+console.log('SORTED:', productsToBeSorted);
+console.log('ORIGINAL:', products);
+
+
+// OBJECTS
+
+let person = {
+    name: "Bob",
+    age: 22
+}
+
+// PROBLEM
+// let personTwo = person;
+// personTwo.name = "Alice";
+
+// console.log(person, personTwo)
+
+// SOLUTION
+
+let personTwo = {...person}; // WILL CREATE A NEW COPY IN MEMORY FROM THE person OBJECT;
+
+personTwo.name = "Alice";
+console.log(person, personTwo)
