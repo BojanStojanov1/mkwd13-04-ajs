@@ -2,7 +2,7 @@ let academy = {
     trainer: "Tijana Stojanovska",
     assistant: "Murat Koca",
     name: "Qinshift",
-    strudents: ["Viktor", "Ivan", "Sinisa", "Martin"]
+    students: ["Viktor", "Ivan", "Sinisa", "Martin"]
 };
 
 //serialization (get JSON string from JS object)
