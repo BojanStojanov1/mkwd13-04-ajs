@@ -108,3 +108,109 @@ const person = {
 
 person.printFullName();
 person.printAge();
+
+/*
+## Exercise 1 Solution
+
+Make 3 functions:
+
+1. Function that takes a number through a parameter and returns how many digits that number has
+2. Function that takes a number through a parameter and returns if its even or odd
+3. Function that takes a number through a parameter and returns if its positive or negative
+
+Finally create a function that takes a number through a parameter and calls all three functions for the number that was passed. It should show the results in the console.
+
+#### Ex:
+
+**Code:** getNumberStats(-25);
+**Console:** 2 Digits, Odd, Negative
+*/
+const countDigits = num => String(Math.abs(num)).length;
+
+const evenOrOdd = num => {
+  if (num % 2 === 0) return "Even";
+
+  return "Odd";
+};
+
+const positiveOrNegative = num => {
+  if (num > 0) return "Positive";
+
+  if (num < 0) return "Negative";
+
+  return "Zero";
+};
+
+console.log(countDigits(-100));
+console.log(evenOrOdd(2));
+console.log(positiveOrNegative(-1));
+
+const getNumberStats = num =>
+  `${countDigits(num)} Digits, ${evenOrOdd(num)}, ${positiveOrNegative(num)}`;
+
+console.log(getNumberStats(-239));
+console.log(getNumberStats(15));
+console.log(getNumberStats(1000000));
+console.log(getNumberStats(-232));
+
+//Recursion
+
+function sumTo(num) {
+  if (num === 0) {
+    return 0;
+  }
+
+  return num + sumTo(num - 1);
+}
+
+const resultSum = sumTo(50);
+
+console.log(resultSum);
+
+//Scope
+
+// let num = 99;
+
+const scopeFunc = () => {
+  let num = 10;
+
+  const childFunc = num => {
+    // let num = 50;
+
+    console.log("NUMBER", num);
+  };
+
+  childFunc(100);
+};
+
+scopeFunc();
+
+const blockScopeFunc = () => {
+  let num = 15;
+
+  if (num < 10) {
+    const firstName = "Borche";
+    // let num = 50;
+
+    console.log(firstName);
+  } else {
+    const firstName = "John";
+    // let num = 100;
+
+    console.log(firstName);
+    // console.log(num);
+  }
+
+  //   console.log(firstName);
+
+  let test = 0;
+
+  for (let i = 0; i < 100; i++) {
+    test += i;
+
+    //Only exists in the for loop code block ( block scoped )
+    let current = i + 1;
+  }
+};
+
+blockScopeFunc();
