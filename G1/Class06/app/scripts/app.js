@@ -4,6 +4,8 @@ const urls = {
     productsByCategory: 'https://fakestoreapi.com/products/category/'
 };
 
+let cartProducst = [];
+
 let filterDiv = document.getElementById('filters');
 let productsMainDiv = document.getElementById('products');
 let categoryHeader = document.getElementById('category-title');
@@ -36,6 +38,16 @@ function getProductsByCategory(category) {
         });
 }
 
+function addCartEventListeners() {
+    let cartBtns = document.querySelectorAll('.cart');
+    console.log(cartBtns);
+    for(let btn of cartBtns) {
+        btn.addEventListener('click', (e) => {
+            console.log(e.target.getAttribute('data-product-id'));
+        })
+    }
+}
+
 // getAllProducts();
 
 function showCategoriesDropDown(data) {
@@ -61,12 +73,13 @@ function showProducts(products) {
                 <div class="card-body">
                   <h5 class="card-title">${product.title}</h5>
                   <p class="card-text">Price: ${product.price} $</p>
-                  <button class="btn btn-primary">Add to cart</button>
+                  <button class="btn btn-primary cart" data-product-id='${product.id}'>Add to cart</button>
                 </div>
               </div>`;
         html += card;
     }
     productsDiv.innerHTML = html;
+    addCartEventListeners();
 }
 
 getAllCategories();
