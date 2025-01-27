@@ -7,32 +7,36 @@ The JediArchives app is the first step to rebuilding the collective knowledge ab
 should help any user that is interested in some Star Wars data to go through the archive and find what they are looking
 for. A small step for the internet, but a huge step for Star Wars fans.
 
+## Links:
+
+https://swapi.py4e.com/api/
+
 ## Requirements 🗺
 
 The web page should be:
 
-* Single page application
-* There should be only one page
-* The logo should show at the front of the page
-* On the page there should be an image of **person** and **space-ship** that get data for the corresponding image and
+- Single page application
+- There should be only one page
+- The logo should show at the front of the page
+- On the page there should be an image of **person** and **space-ship** that get data for the corresponding image and
   display a table
-* Tables:
-    * Person
-        * Name
-        * Height
-        * Mass
-        * Gender
-        * Birth Year
-        * Appearances ( Count of movies they appeared in )
-    * Ship
-        * Name
-        * Model
-        * Manufacturer
-        * Cost
-        * People Capacity ( Max people on board )
-        * Class
-* There should be 10 records per page of a table
-* There should be next/previous buttons to change the pages
+- Tables:
+  - Person
+    - Name
+    - Height
+    - Mass
+    - Gender
+    - Birth Year
+    - Appearances ( Count of movies they appeared in )
+  - Ship
+    - Name
+    - Model
+    - Manufacturer
+    - Cost
+    - People Capacity ( Max people on board )
+    - Class
+- There should be 10 records per page of a table
+- There should be next/previous buttons to change the pages
 
 ## Flow 🌈
 
