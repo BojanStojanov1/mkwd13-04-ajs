@@ -1,8 +1,11 @@
 const urls = {
     category: 'https://fakestoreapi.com/products/categories',
-    allProducts: 'https://fakestoreapi.com/products'
+    allProducts: 'https://fakestoreapi.com/products',
+    productsByCategory: 'https://fakestoreapi.com/products/category/'
 };
 
+let filterDiv = document.getElementById('filters');
+let productsMainDiv = document.getElementById('products');
 let categoryHeader = document.getElementById('category-title');
 let productsDiv = document.getElementById('show-products');
 
@@ -25,7 +28,15 @@ function getAllProducts() {
         });
 }
 
-getAllProducts();
+function getProductsByCategory(category) {
+    fetch(`${urls.productsByCategory}${category}`)
+        .then(res=> res.json())
+        .then(products=> {
+            showProducts(products);
+        });
+}
+
+// getAllProducts();
 
 function showCategoriesDropDown(data) {
     let btn = `<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -64,6 +75,15 @@ document.getElementById('category-filter')
     .addEventListener('click', (e) => {
         if(e.target.tagName === 'BUTTON' && e.target.name === 'category') {
             categoryHeader.innerText = e.target.value;
+            getProductsByCategory(e.target.value);
         }
+    });
+
+document.getElementById('products-nav')
+    .addEventListener('click', () => {
+        filterDiv.style.display = 'block';
+        productsMainDiv.style.display = 'block';
+        categoryHeader.innerText = 'All Products';
+        getAllProducts();
     });
 
