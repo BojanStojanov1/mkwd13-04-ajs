@@ -4,6 +4,7 @@ const urls = {
 };
 
 let categoryHeader = document.getElementById('category-title');
+let productsDiv = document.getElementById('show-products');
 
 // get all categories
 
@@ -41,9 +42,20 @@ function showCategoriesDropDown(data) {
     document.getElementById('category-filter')
         .innerHTML = html;
 }
-
 function showProducts(products) {
-
+    let html = '';
+    for(let product of products) {
+        let card = `<div class="card" style="width: 18rem;">
+                <img src="${product.image}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">${product.title}</h5>
+                  <p class="card-text">Price: ${product.price} $</p>
+                  <button class="btn btn-primary">Add to cart</button>
+                </div>
+              </div>`;
+        html += card;
+    }
+    productsDiv.innerHTML = html;
 }
 
 getAllCategories();
