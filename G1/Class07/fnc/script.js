@@ -190,3 +190,28 @@ function addToArray(arr) {
 
 // let result3 = addToArray([], 1, 2, 3, 4, 5, 'Trajan', 'Filip', [12, 32], { age: 15 });
 // console.log(result3);
+
+// Pure fnc
+
+function sumPure(a, b) {
+    return a + b;
+}
+
+// impure fnc
+
+let num = 5;
+let num1 = 10;
+
+function sumImpure() {
+    return num + num1 + 10;
+}
+
+num = 15;
+
+sumImpure();
+
+function change() {
+    let a = 10;
+    num = 5;
+    return a + num;
+}
