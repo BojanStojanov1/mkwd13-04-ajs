@@ -23,4 +23,51 @@ function logMessage() {
 document.getElementById("btn").addEventListener("click", logMessage);
 
 // MAKING API REQUESTS
-const URL = "https://official-joke-api.appspot.com/jokes/programming/ten";
+const API_URL = "https://official-joke-api.appspot.com/jokes/programming/ten";
+
+function getData(url, printFunction) {
+  fetch(url)
+    .then((response) => response.json())
+    .then((result) => {
+      printFunction(result);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+function printDataInConsole(data) {
+  console.log(data);
+}
+
+// getData(API_URL, printDataInConsole);
+
+// getData(API_URL, (data) => {
+//   console.log(data);
+// });
+
+// getData(API_URL, function (result) {
+//   console.log(result);
+// });
+
+// console.log itself is passed as a callback.
+// Since console.log is a function that takes one argument and logs it, it works the same way as above
+// The only difference is that:
+// console.log(data) → Executes immediately.
+// console.log → Passes the function reference, which gets called later.
+// getData(API_URL, console.log);
+
+// ASYNCHRONOUS OPERATIONS
+function asyncOperation(callback) {
+  console.log("STARTING...");
+  setTimeout(() => {
+    const result = "COMPLETED";
+    callback(result);
+  }, 3000);
+  console.log("THIS WILL LOG IN CONSOLE");
+}
+function callbackFunction(str) {
+  console.log(str);
+}
+
+asyncOperation(callbackFunction);
