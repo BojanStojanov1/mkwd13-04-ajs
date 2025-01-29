@@ -251,3 +251,4 @@ The request succeeded!
 * [Callbacks explained](https://www.sitepoint.com/callbacks-javascript/)
 * [Amazing video about the event loop](https://www.youtube.com/watch?v=cCOL7MC4Pl0)
 * [Event Loop code Visualized with animations](https://github.com/Drakso/DarkSecretsOfTheEventLoop)
+* [JS Visualizer](https://www.jsv9000.app/)
