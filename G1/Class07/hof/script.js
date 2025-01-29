@@ -149,15 +149,66 @@ let result2 = filterAndMapStudents(studentsDatabase,
 let result3 = studentsDatabase
                 .filter(x => x.age > 17)
                 .map(x => ({ age: x.age, firstName: x.firstName, isHof: true }));
-console.log(result3);
+// console.log(result3);
 
 let numbers1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-let result5 = numbers1
-                .filter(x => x % 2 === 0)
-                .map(x => x * 10)
-                .filter(x => x % 10 === 0)
-                .filter(x => true)
-                .map(x => x)
-                .forEach(x => console.log(x));
+// let result5 = numbers1
+//                 .filter(x => x % 2 === 0)
+//                 .map(x => x * 10)
+//                 .filter(x => x % 10 === 0)
+//                 .filter(x => true)
+//                 .map(x => x)
+//                 .forEach(x => console.log(x));
 
-console.log(result5);
+// console.log(result5);
+
+
+// sort fnc
+
+// let result6 = studentsDatabase.sort((std, std1) => std.grade - std1.grade); // ascending
+// let result7 = studentsDatabase.sort((std, std1) => std1.grade - std.grade); // descending
+
+// console.log(result6);
+// console.log(result7);
+
+// sort by name 
+// let result8 = studentsDatabase.sort((std, std1) => std.firstName.localeCompare(std1.firstName));
+// let result8 = studentsDatabase.sort((std, std1) => std1.firstName.localeCompare(std.firstName));
+// console.log(result8);
+
+
+// reduce
+
+
+let numbers2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
+function reduceNumbersArray(numbers) {
+    let sum = 0;
+    for(let num of numbers) {
+        sum += num;
+    }
+    return sum;
+}
+
+function reduceNumbers(numbers, reduceFnc, accumulator) {
+    for(let num of numbers) {
+        reduceFnc(accumulator, num);
+    }
+    return accumulator;
+}
+// console.log(reduceNumbers(numbers2, (acc, current) => acc += current, 0));
+
+let sum = numbers2.reduce((acc, current) => acc += current, 0);
+// console.log(sum);
+
+let studentNames = studentsDatabase
+        .reduce((acc, current) => acc += current.firstName + ',', '');
+// console.log(studentNames);
+
+let studentsWithGradesOver3 = studentsDatabase
+                    .filter(x => x.grade >= 3)
+                    .filter(x => x.age > 17)
+                    .map(x => `${x.firstName} ${x.lastName}`)
+                    .reduce((acc, curr) => acc += curr + ' ', '');
+
+console.log(studentsWithGradesOver3);
