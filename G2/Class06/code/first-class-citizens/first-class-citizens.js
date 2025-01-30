@@ -15,6 +15,7 @@ let greet = name => console.log(`Hello ${name}`);
 greet("Darko")
 
 // ===> Used as an argument to another function ***
+// Example 1
 function calculator(calculateFunc, num1, num2) {
     return calculateFunc(num1, num2)
 }
@@ -30,13 +31,13 @@ let subtractResult = calculator(function (num1, num2) {
     return num1 - num2;
 }, 100, 80);
 
+console.log(calculator((x, y) => x * y, 30, 2))
+
+// Example 2
 function logFunction(func) {
     func();
 }
-
 logFunction(() => console.log("Hello"))
-
-console.log(calculator((x, y) => x * y, 30, 2))
 
 
 // ===> Used as a return value from another function
@@ -51,6 +52,7 @@ function getOperation(operator) {
         case "/":
             return (num1, num2) => num1 / num2;
         case "**":
+            // power operator
             return (num1, num2) => num1 ** num2;
         default:
             break;
