@@ -1,4 +1,4 @@
-# Exercises 📃
+# Homework 📃
 
 ### Use higher order functions to find the answers ⚠️
 
