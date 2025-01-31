@@ -134,17 +134,94 @@ function fetchDataPromise() {
 
 // real life example of using promises
 
-function getDocuments() {
-  return new Promise((resolve, reject) => {
-    fetch(
-      "https://raw.githubusercontent.com/sedc-codecademy/skwd9-04-ajs/main/Samples/documents.json"
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        resolve(data);
-      })
-      .catch((error) => {
-        reject(error);
-      });
+// function getDocuments() {
+//   return new Promise((resolve, reject) => {
+//     fetch(
+//       "https://raw.githubusercontent.com/sedc-codecademy/skwd9-04-ajs/main/Samples/documents.json"
+//     )
+//       .then((response) => response.json())
+//       .then((data) => {
+//         resolve(data);
+//       })
+//       .catch((error) => {
+//         reject(error);
+//       });
+//   });
+// }
+
+// function getImportantDocuments(documents) {
+//   const importantDocuments = documents.filter((document) => document.important);
+
+//   return new Promise((resolve, reject) => {
+//     if (importantDocuments.length === 0) {
+//       reject("There are no important documents!");
+//     }
+//     setTimeout(() => {
+//       resolve(importantDocuments);
+//     }, 3000);
+//   });
+// }
+
+// function checkDocuments(documents) {
+//   if (!documents || typeof documents !== "object") {
+//     throw new Error("Problem with documents!");
+//   }
+//   if (documents.length === 0) {
+//     throw new Error("There are no documents!");
+//   }
+// }
+
+// function showDocuments(documents) {
+//   documents.forEach((document) => {
+//     console.log(`${document.name}.${document.type} (${document.size}mb)`);
+//   });
+// }
+
+// getDocuments()
+//   .then((data) => {
+//     // data = documents from the server
+//     console.log("We got the documents!");
+//     checkDocuments(data);
+
+//     return getImportantDocuments(data);
+//   })
+//   .then((data) => {
+//     return showDocuments(data);
+//   })
+//   .catch((error) => {
+//     console.error(error);
+//   });
+
+// Async function using await
+
+async function getData() {
+  // this looks synchronous, but it actually isnt
+  const result = await fetchDataPromise();
+  console.log(result);
+
+  const nextResult = await anotherAsyncOperation();
+  console.log(nextResult);
+}
+
+function anotherAsyncOperation() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Second operation done!");
+    }, 500);
   });
 }
+
+getData();
+
+const test = async () => {
+  const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+
+  if (!response.ok) {
+    throw new Error(`HTTP Error, status ${response.status}`);
+  }
+
+  return response;
+};
+
+const promise = test();
+console.log(promise);
