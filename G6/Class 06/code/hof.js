@@ -116,3 +116,47 @@ let sum = students.filter(s => s.averageGrade > 1)
 // .reduce(aggregate, 5);
 
 console.log(sum);
+
+
+numbers = [2,3,4,7,1,5,19];
+
+let concatenate = function(currentResult, currentValue){
+    debugger
+    return currentResult += currentValue;
+}
+
+let zbir = numbers.reduce(concatenate, 0);
+console.log(zbir);
+
+let concatenatedNumbers = numbers.reduce(concatenate, "");
+console.log(concatenatedNumbers);
+
+console.log("=======sort=========");
+//SORT CHANGES THE ORIGINAL ARRAY!
+
+//<0 a.averageGrade (the first element in a-b) should be in the position with lowe index
+//=0 the elements have the same value, nothing changes
+//>0 b.averageGrade (the second element in a-b) should be in the position with lower index
+students.sort((a, b) => a.averageGrade - b.averageGrade); //asc
+console.log(students);
+
+students.sort((a, b) => b.averageGrade - a.averageGrade); //desc
+console.log(students);
+
+//let copy = students; //pass by reference, each change in copy will change the original students array
+
+function copyArray(array){
+    let copiedArray = [];
+    array.forEach(item => copiedArray.push(item)) // we add the elements in a totally different array
+    return copiedArray;
+}
+//at this moment we have the students ordered desc by average grade
+let copy = copyArray(students);
+console.log(copy);
+
+copy.sort((c1, c2) => c1.averageGrade - c2.averageGrade); //asc
+
+console.log("copy");
+console.log(copy);
+console.log("students");
+console.log(students);

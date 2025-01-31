@@ -1,0 +1,26 @@
+
+.navbar-color {
+    background-color: #7595f2e8;
+}
+
+body {
+    background-image: url("./assets/img/image-1.jpg");
+    background-size: cover;
+}
+
+#pages {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    display: none;
+}
+
+#pages .page:first-child {
+    display: flex;
+}

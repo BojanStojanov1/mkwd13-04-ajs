@@ -165,7 +165,10 @@ const students = [
   },
 ];
 
-//1. forEach
+//What does the HOF return (Memorize the ruturn types by practice)
+//Does the HOF mutate the orginal array (Not knowing this can lead to very nasty mutability bugs)
+
+//1. forEach (doesn't mutate array, used for mutating the child elements, returns undefined)
 
 //without forEach
 const printStudentInfo = students => {
@@ -184,7 +187,7 @@ students.forEach(student => {
   console.log(`${student.firstName} ${student.lastName}, Age: ${student.age}`);
 });
 
-//2. filter
+//2. filter (doesn't mutate, returns new array)
 
 //without filter
 const filterStudents = students => {
@@ -204,7 +207,7 @@ const filteredStudents = students.filter(student => student.age < 18);
 
 console.log(filteredStudents);
 
-//3. map
+//3. map (doesn't mutate, returns new array with exact same number of elements as original)
 
 const numbers = [-100, 3, 4, 1, 6, 5, 4, 7, 8];
 
@@ -258,7 +261,7 @@ const sumNumbers = numbers => {
 // console.log(sumNumbers(numArrTwo));
 // console.log(sumNumbers([1, 2, 3, 4]));
 
-//with reduce
+//with reduce (doesn't mutate, returns a new user defined value)
 
 const sum = numArrTwo.reduce((acc, el) => acc + el, 0);
 
@@ -292,7 +295,7 @@ const numbersData = numArrTwo.reduce(
 
 console.log(numbersData);
 
-//5. find
+//5. find (doesn't mutate, either returns the first found element or returns undefined)
 
 //without find
 
@@ -310,12 +313,65 @@ const foundStudent = students.find(student => student.firstName === "Ronnie");
 
 const filterJohn = students.filter(student => student.firstName === "Ronnie");
 
-//6. some
+//6. some (doesn't mutate, returns boolean)
 
-//7. every
+const numArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
-//8. sort
+console.log(
+  "Some Output",
+  numArr.some(num => num > 10)
+);
+
+//7. every (doesn't mutate, returns boolean)
+
+console.log(
+  "Every Output",
+  numArr.every(num => num > 0)
+);
+
+//8. sort (MUTATE ARRAY)
+
+const numArrThree = [1, 3, 52, 3, 2, 4, 109, 2, 23, 1, 2];
+
+console.log("Numbers before sort", numArrThree);
+
+numArrThree.sort((a, b) => a - b);
+
+console.log("Numbers after sort", numArrThree);
+
+console.log("Students before sort", students);
+
+const studentsCopy = students.map(student => student);
+studentsCopy.sort((a, b) => a.age - b.age);
+
+console.log("Students after sort", students);
+console.log("Students copy after sort", studentsCopy);
+
+//Method Chaining
+const oldButGoodStudents = students
+  .filter(student => student.age > 25)
+  .map(
+    student => `${student.firstName} ${student.lastName}, Age: ${student.age}`
+  );
+
+console.log(oldButGoodStudents);
 
 //IIFE
 
-//Method Chaining
+function app() {
+  //ENTIRE APPLICATION CODE
+  const inAppFunc = () => {
+    console.log("do something important");
+  };
+
+  inAppFunc();
+}
+
+(function () {
+  //Important declarations
+
+  app();
+  console.log("I am called from an iife");
+})();
+
+app();

@@ -44,3 +44,38 @@ console.log(testArray[0]);
 console.log(newTestArray[0]);
 
 
+console.log("");
+console.log("=============== Creating Copy of an Array ===============");
+// => since arrays are REFERENCE type, in many cases we don't want to modify the original array, so we need a way to create a copy of it with the changes we want, and not affect the original as mentioned.
+
+let numbersArray = [1, 2, 3, 4, 5];
+
+// ===> Using custom function
+function copyArray(array) {
+    let result = [];
+    array.forEach(item => result.push(item));
+    return result;
+}
+
+let numbersArrayCopy = copyArray(numbersArray);
+numbersArrayCopy.pop();
+
+console.log("The copy ", numbersArrayCopy);
+console.log("The original ", numbersArray);
+
+// ===> Using slice()
+let numbersArraySliceCopy = numbersArray.slice();
+numbersArraySliceCopy.push(123, 123, 123)
+console.log("The slice copy ", numbersArraySliceCopy);
+console.log("The original ", numbersArray);
+
+// ===> Using map()
+let numbersArrayMapCopy = numbersArray.map(n => n);
+numbersArrayMapCopy.pop();
+console.log(numbersArrayMapCopy);
+
+// ===> Using spread operator (BONUS)
+let numbersArraySpreadCopy = [...numbersArray];
+numbersArraySpreadCopy.shift();
+console.log("The spread copy ", numbersArraySpreadCopy);
+console.log("The original ", numbersArray);
