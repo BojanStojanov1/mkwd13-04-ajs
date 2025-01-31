@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Linking boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="styles.css">
+    <title>Weather Alert</title>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-color">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="./assets/img/cloudy.svg" alt="logo">
+          </a>
+          
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Hourly</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+              
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+              <button id="searchBtn" class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+      <!-- PAGES -->
+    <main id="pages">
+        <!-- Home page -->
+        <section class="page home-page">
+            <h1>Weather forecast</h1>
+            <p>Hello amigo! Welcome to the best forecast application!</p>
+
+            <div id="forecastResult"></div>
+        </section>
+
+        <!-- Hourly page -->
+        <section class="page">
+            <h1>Hourly data</h1>
+            <p>Hourly data information</p>
+
+            <div id="tableResult"></div>
+        </section>
+
+        <!-- About page -->
+        <section class="page">
+            <h1>Team behind this app</h1>
+            <p>...</p>
+        </section>
+    </main>
+
+
+
+
+
+
+
+    
+
+    <!-- Boostrap script (might be needed for some bootstrap components) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script src="./script.js"></script>
+</body>
+</html>
