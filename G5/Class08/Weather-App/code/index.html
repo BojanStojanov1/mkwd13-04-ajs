@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,6 +37,8 @@
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
               <button id="searchBtn" class="btn btn-outline-success" type="submit">Search</button>
             </form>
+
+            <button id="btnSwitch" class="btn btn-outline-success" type="button">Light/Dark</button>
           </div>
         </div>
       </nav>
@@ -52,11 +54,13 @@
         </section>
 
         <!-- Hourly page -->
-        <section class="page">
+        <section class="page" id="hourlySection">
             <h1>Hourly data</h1>
             <p>Hourly data information</p>
 
-            <div id="tableResult"></div>
+            <div id="tableResult">
+
+            </div>
         </section>
 
         <!-- About page -->

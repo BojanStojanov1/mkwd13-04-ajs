@@ -24,3 +24,13 @@ body {
 #pages .page:first-child {
     display: flex;
 }
+
+.forecastName {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#hourlySection {
+    width: 90%;
+}
