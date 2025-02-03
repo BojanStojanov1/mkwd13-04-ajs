@@ -19,7 +19,8 @@ application is very simple. It only has one functionality: Search and show the c
     country_name>)
 - The API for countries is: https://restcountries.com/
   - All countries: https://restcountries.com/v3.1/all
-  - Specific country: https://restcountries.com/v3.1/name/${countryCode}
+  - Specific country: https://restcountries.com/v3.1/name/{countryCode}
+  - Specific list of countries: https://restcountries.com/v3.1/alpha?codes=ALB,BGR,GRC,UNK,SRB
 - Read the API documentation to figure out how to call for the countries
 
 ### Extra requirements
