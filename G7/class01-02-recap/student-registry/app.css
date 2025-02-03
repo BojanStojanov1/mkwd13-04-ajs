@@ -1,0 +1,14 @@
+body {
+  font-family: sans-serif;
+}
+
+.student-form {
+  width: 300px;
+  display: grid;
+  gap: 10px;
+}
+
+.student-form button {
+  justify-self: center;
+  width: 120px;
+}

@@ -1,3 +1,14 @@
 body {
   font-family: sans-serif;
 }
+
+.form-group {
+  display: grid;
+  width: 300px;
+  gap: 10px;
+}
+
+.form-group button {
+  width: 150px;
+  justify-self: center;
+}
