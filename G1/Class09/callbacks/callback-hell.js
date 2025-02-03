@@ -95,3 +95,51 @@ getDocumentsCallback(function (data) {
     console.log(error);
 });
 
+
+
+function callBackHell(showData) {
+    let error = null;
+    setTimeout(() => {
+        console.log("one");
+        if (error) {
+            // do something
+        }
+        setTimeout(() => {
+            console.log("two");
+            if (error) {
+                // do something
+            }
+            setTimeout(() => {
+                console.log('three');
+                if (error) {
+                    // do something
+                }
+                setTimeout(() => {
+                    console.log('four');
+                    if (error) {
+                        // do something
+                    }
+                    setTimeout(() => {
+                        console.log('five');
+                        if (error) {
+                            // do something
+                        }
+                        setTimeout(function () {
+                            console.log('six');
+                            if (error) {
+                                // d something
+                            }
+                            setTimeout(function () {
+                                console.log('last');
+                                if (error) {
+                                    // do something
+                                }
+                                showData();
+                            }, 1000);
+                        }, 2000);
+                    }, 1000);
+                }, 2000);
+            }, 1000);
+        }, 2000);
+    }, 1000);
+}
