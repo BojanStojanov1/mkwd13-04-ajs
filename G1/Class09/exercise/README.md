@@ -8,6 +8,8 @@
 
 Example:
 
+https://restcountries.com/v2/alpha/mkd
+
 Call -> MKD
 
 In console:
