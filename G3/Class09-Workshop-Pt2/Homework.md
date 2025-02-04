@@ -2,15 +2,14 @@
 
 ### There is a JSON with products. Make a call and get the following data from it:
 
-- All laptops, ordered by price descending
-- The first grocery item
-- Index of the first "Samsung" smartphone
-- Check if there is any item from the brand "Sony"
-- The name of the highest rated skincare product
-- The average discount percentage of products with a rating above 4.5
+- All beauty products, ordered by price descending
+- All the products that have stock more than 50
+- All products that have a lifetime warranty and rating of 5
+- The average rating of all products in category "furniture"
+- The name of the highest rated beauty product
 - Find the product with the highest price
-- Average price of all IPhone smartphones
-- The product with the lowest price
+- Calculate the average rating from the reviews of products with id 22"
+- Return the title and description of all products that have discounted percentage above 10
   Link: https://dummyjson.com/products
 
 ## Exercise 2
