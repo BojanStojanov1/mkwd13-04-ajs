@@ -23,7 +23,7 @@ console.log("=============== Synchronous ===============");
 // => code is executed sequentially, one line at a time
 // => each line of code must be completed before moving on to the next one
 // => blocking nature
-
+debugger;
 function first() {
     console.log("First thing!");
 }
