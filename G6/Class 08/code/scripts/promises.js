@@ -39,7 +39,7 @@ console.log(promise);
 // Legit way of using this function that returns promise
 // .then(anonymouseFunction(result)) - When/If the promise is resolved, the anonymouseFunction will be executed with the result from the Promise()
 // .catch(anonymouseFunction(error)) - When/If the promise is rejected OR if there is any error or issue regarding the promise
-                                    // the .catch() function will be executed with the error parameter accordingly
+// the .catch() function will be executed with the error parameter accordingly
 
 
 // work(2000).then(result => {
@@ -67,13 +67,67 @@ let testPromise = new Promise((resolve, reject) => {
     //reject("The promise is rejected! Sorry :/");
 });
 
-testPromise.then(result => {
-    console.log(result);
+// testPromise.then(result => {
+//     console.log(result);
+// }).catch(error => {
+//     console.log(error);
+// }).finally(() => {
+//     console.log("The Promise() finally finished!");
+// });
+
+
+let documentsUrl = 'https://raw.githubusercontent.com/qa-codecademy/mkwd13-04-ajs/refs/heads/main/G6/Class%2008/documents.json';
+
+function getDocuments() {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            url: documentsUrl,
+            success: (response) => {
+                let responseParsed = JSON.parse(response);
+                resolve(responseParsed);
+            },
+            error: (error) => {
+                reject(error);
+            }
+        })
+    })
+}
+
+function showDocuments(documents) {
+    // Validation for the document types
+    if (!documents && typeof (documents) != 'object') {
+        throw new Error("Issue with documents!");
+    }
+    if(documents.length === 0){
+        throw new Error("No documents found on the server!");
+    }
+    documents.forEach(doc => {
+        console.log(`${doc.name}.${doc.type} (${doc.size}MB)`);
+    })
+}
+
+getDocuments().then(documents => {
+    //console.log(documents);
+    showDocuments(documents);
 }).catch(error => {
     console.log(error);
-}).finally(() => {
-    console.log("The Promise() finally finished!");
 });
+
+
+
+console.log("====================Fetching documents from server using Fetch()==================")
+
+fetch(documentsUrl)
+.then(response => response.json())
+.then(documents => {
+    showDocuments(documents);
+})
+.catch(error => {
+    console.log(error);
+});
+
+
+
 
 
 
