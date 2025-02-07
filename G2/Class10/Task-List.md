@@ -16,4 +16,16 @@
 
 5. Handle people and starships events (clicks)
 
-### To be continued ...
+6. Add table to display data (people or starships)
+    6.1. Create the basic table structure and style in the HTML
+    6.2. Populate and display table with data fetched from the API
+        => function for retrieving table html (with populate headers and rows)
+        => function for rendering People
+        => function for rendering Starships
+    6.3.
+
+### ☕ COFFEE BREAK ☕ 
+
+
+7. Implement Pagination for tables...
+
