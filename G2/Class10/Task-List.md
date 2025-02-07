@@ -22,7 +22,8 @@
         => function for retrieving table html (with populate headers and rows)
         => function for rendering People
         => function for rendering Starships
-    6.3.
+    6.3. Constructor Functions (Person, Starship) 
+        => map the fetched data to the desired objects
 
 ### ☕ COFFEE BREAK ☕ 
 
