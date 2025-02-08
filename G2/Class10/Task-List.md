@@ -16,17 +16,26 @@
 
 5. Handle people and starships events (clicks)
 
-6. Add table to display data (people or starships)
-    6.1. Create the basic table structure and style in the HTML
-    6.2. Populate and display table with data fetched from the API
-        => function for retrieving table html (with populate headers and rows)
-        => function for rendering People
-        => function for rendering Starships
-    6.3. Constructor Functions (Person, Starship) 
+6. Add table to display data (people or starships)<br>
+    6.1. Create the basic table structure and style in the HTML<br>
+    6.2. Populate and display table with data fetched from the API<br>
+        => function for retrieving table html (with populate headers and rows)<br>
+        => function for rendering People<br>
+        => function for rendering Starships<br>
+    6.3. Constructor Functions (Person, Starship)<br> 
         => map the fetched data to the desired objects
 
 ### ☕ COFFEE BREAK ☕ 
 
+7. Implement pagination for data display<br>
+    7.1. Display "Previous" and "Next" buttons.<br>
+        => function for displaying the buttons<br>
+    7.2. Add event listeners for pagination buttons.<br>
+    7.3. Update the displayed data based on page number.
 
-7. Implement Pagination for tables...
+8. Show loading indicator during data fetch
 
+9. Refactor + Document Code
+10. Improve UI/UX
+11. Implement extra features :)
+12. Admire your work !!! 
