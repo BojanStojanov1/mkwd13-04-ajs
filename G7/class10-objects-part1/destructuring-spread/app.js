@@ -207,6 +207,92 @@ console.log(carInfoAssignCopy);
 
 const carInfoCreateCopy = Object.create(carInfo);
 
-console.log(carInfoCreateCopy);
+// console.log(carInfoCreateCopy);
 
-console.log(carInfoCreateCopy.paint);
+// console.log(carInfoCreateCopy.paint);
+
+//Object.keys returns an array of all the keys of the object
+
+//Object keys are never ordered
+const carInfoKeys = Object.keys(carInfo);
+
+console.log(carInfoKeys);
+
+carInfoKeys.forEach(key => {
+  console.log(key, carInfo[key]);
+});
+
+//Object.values returns an array with all the values of the object
+
+const carInfoValues = Object.values(carInfo);
+
+console.log(carInfoValues);
+
+//Object.entries returns an array with nested arrays that contain the key and the value
+
+const carInfoEntries = Object.entries(carInfo);
+
+console.log(carInfoEntries);
+
+//Dynamically adding properties to an object
+
+const newKeys = ["isEuroSix", "isAffordable", "isRegistered"];
+
+newKeys.forEach(key => {
+  carInfo[key] = true;
+});
+
+console.log(carInfo);
+
+//Chad wants to be a perfect student
+
+const badStudent = {
+  name: "Chad",
+  grades: {
+    basicHTML: 1,
+    basicJS: 1,
+    advJS: 1,
+    basicNode: 1,
+    SQL: 1,
+  },
+};
+
+const gradeKeys = Object.keys(badStudent.grades);
+
+console.log(gradeKeys);
+
+gradeKeys.forEach(key => {
+  badStudent.grades[key] = 5;
+});
+
+console.log(badStudent);
+
+//Object.seal prevents adding new properties but allows for editing of existing ones
+
+const american = {
+  name: "Bob Bobsky",
+  country: "USA",
+};
+
+Object.seal(american);
+
+american.isCrazy = true;
+
+american.name = "Billy Bob";
+
+console.log(american);
+
+//Object.freeze prevents adding or editing properties whatsoever
+
+const frenchmen = {
+  name: "Jacque",
+  country: "France",
+};
+
+Object.freeze(frenchmen);
+
+frenchmen.country = "Canada";
+frenchmen.isCrazy = true;
+frenchmen.name = "Louie";
+
+console.log(frenchmen);
