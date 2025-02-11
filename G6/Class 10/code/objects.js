@@ -106,6 +106,8 @@ console.log(`Are apples identical: ${areIdentical}`);
 let yellowApple= new Food("apple", "yellow");
 console.log(apple.compare(yellowApple));
 
+let redApple = apple;
+console.log(apple === redApple);
 
 let tmpA = 5;
 let tmpB = 5;
