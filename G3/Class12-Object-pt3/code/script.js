@@ -55,7 +55,7 @@ class Employee extends Person {
 class Developer extends Employee {
   constructor(firstName, lastName, employeeId, programmingLanguage) {
     super(firstName, lastName, employeeId);
-    this.programmingLanguage = programmingLanguage;
+    this.programmingLanguage = programmingLanguage ?? "JavaScript";
   }
 
   code() {
@@ -87,6 +87,15 @@ class Manager extends Employee {
       );
     }
   }
+
+  listTeam() {
+    console.log(`${this.getFullName()}'s Team`);
+    this.team.forEach((member) => {
+      console.log(
+        `- ${member.getFullName()} (Developer in ${member.programmingLanguage})`
+      );
+    });
+  }
 }
 
 // Creating instances
@@ -111,3 +120,5 @@ console.log(john instanceof Person); // true
 console.log(mark instanceof Developer); // Manager doesnt inerit anything from the Developer class
 console.log(mark instanceof Manager); // true
 console.log(lucy instanceof Developer); // false
+
+mark.listTeam();
