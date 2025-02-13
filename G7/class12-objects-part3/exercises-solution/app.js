@@ -47,3 +47,63 @@ const nuts = ["peanuts", "almonds", "walnuts", "hazelnuts"];
 const plants = [...fruits, ...vegetables, ...nuts].map(pl => pl.toUpperCase());
 
 console.log(plants);
+
+/*
+Create a Person class that has:
+
+- firstName
+- lastName
+- age
+- getFullName - method that returns the full name
+
+Create a Student class that inherits from Person and has:
+
+- academyName
+- studentId - number or string
+- study - method that writes in the console: The student firstName is studying in the academyName
+
+Create two Student instances
+*/
+
+class Person {
+  constructor(firstName, lastName, age) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+  }
+
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+}
+
+class Student extends Person {
+  constructor(firstName, lastName, age, academyName, studentId) {
+    super(firstName, lastName, age);
+
+    this.academyName = academyName;
+    this.studentId = studentId;
+  }
+
+  study() {
+    console.log(
+      `The student ${this.firstName} is studying in the ${this.academyName}`
+    );
+  }
+}
+
+const studentOne = new Student("John", "Doe", 45, "Academy for Programming", 1);
+const studentTwo = new Student(
+  "Jane",
+  "Robson",
+  32,
+  "Academy for Graphic Design",
+  2
+);
+
+console.log(studentOne, studentTwo);
+
+console.log(studentOne.getFullName(), studentTwo.getFullName());
+
+studentOne.study();
+studentTwo.study();
