@@ -33,3 +33,17 @@ const renderMovie = ({
 };
 
 renderMovie(movie);
+
+/*
+Given the below arrays, combine them all to create one main array called `plants`, the order is up to the student, after that make every string in the array `UPPERCASE`
+*/
+
+const fruits = ["apples", "oranges", "lemons"];
+
+const vegetables = ["broccoli", "carrots", "cabbage"];
+
+const nuts = ["peanuts", "almonds", "walnuts", "hazelnuts"];
+
+const plants = [...fruits, ...vegetables, ...nuts].map(pl => pl.toUpperCase());
+
+console.log(plants);
