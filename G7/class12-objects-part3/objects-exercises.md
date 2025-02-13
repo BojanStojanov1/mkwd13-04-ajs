@@ -14,3 +14,15 @@ const movie = {
   },
 };
 ```
+
+## Task 2
+
+Given the below arrays, combine them all to create one main array called `plants`, the order is up to the student, after that make every string in the array `UPPERCASE`
+
+```js
+const fruits = ["apples", "oranges", "lemons"];
+
+const vegetables = ["broccoli", "carrots", "cabbage"];
+
+const nuts = ["peanuts", "almonds", "walnuts", "hazelnuts"];
+```
