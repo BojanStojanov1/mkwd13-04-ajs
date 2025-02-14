@@ -11,6 +11,7 @@ console.log(dog);
 
 let barnie = Object.create(dog);
 console.log(barnie);
+console.log(barnie.isHappy);
 
 barnie.name = "Barnie";
 console.log(dog);
