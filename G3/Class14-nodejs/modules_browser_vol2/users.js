@@ -78,7 +78,7 @@ export const users = [
     firstName: "Mike",
     lastName: "Johnson",
     age: 29,
-    role: "user",
+    role: "guest",
   },
   {
     email: "user9@example.com",
@@ -87,6 +87,6 @@ export const users = [
     firstName: "Olivia",
     lastName: "White",
     age: 26,
-    role: "user",
+    role: "guest",
   },
 ];
