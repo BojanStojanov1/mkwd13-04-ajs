@@ -14,8 +14,8 @@ const say = require('./say');
 
 // console.log(say);
 
-// console.log(say.sayHello('Trajan'));
-// console.log(say.sayBye('Filip'));
+console.log(say.sayHello('Trajan'));
+console.log(say.sayBye('Filip'));
 
 const { sum, substract, multiply } = require('./calculator');
 // const { sobiranje: sum, odzemanje: substract, mnozenje: multiply } = require('./calculator');
@@ -31,5 +31,27 @@ const textService = require('./textService');
 
 // textService.appendText('We are learning Node.js');
 
-let textFileContent = textService.readText();
-console.log(textFileContent);
+// let textFileContent = textService.readText();
+// console.log(textFileContent);
+
+const jsonService = require('./jsonReaderService');
+
+let students = {
+    students: [
+        {
+            firstName: 'Trajan',
+            lastName: 'Stevkovski'
+        },
+        {
+            firstName: 'Filip',
+            lastName: 'Zlatanovski'
+        }
+    ]
+};
+
+// jsonService.addData(students);
+
+// jsonService.appendData({
+//     grades: [1, 2, 3, 4]
+// });
+
