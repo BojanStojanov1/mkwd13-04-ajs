@@ -1,0 +1,16 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "demo for node package manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Qinshift Academy Group 1",
+  "license": "ISC",
+  "dependencies": {
+    "array-includes": "^3.0.3",
+    "devextreme": "^24.2.3",
+    "jquery": "^3.7.1"
+  }
+}
