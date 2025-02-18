@@ -139,7 +139,7 @@ let ferguson = new Tractor(1, 'Ferguson', 123, 1200, 4, true, 1);
 // console.log(ferguson);
 
 
-// we can create models without inheritance but..
+// we can create models without inheritance but we need to copy most of the code in every constructor function
 function Car(id, name, batchNo, price, wheels, hasEqupment, fuleType) {
     this.id = id;
     //...
