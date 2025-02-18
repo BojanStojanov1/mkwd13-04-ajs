@@ -1,12 +1,20 @@
 console.log("=================== STATIC MEMBERS ===================");
+// => created using the keyword *static* before the method/property definition
+// => static method is a method that is associated with the class itself, rather than with instances (objects) created from that particular class
+// => this means that you can call a static method without creating an instance of the class, simply by typing the syntax: ClassName.methodName()
+// Use cases: 
+// => Shared functionality that does not depend on a specific instance
+// => Utility functions that operate on multiple instances
+// => Helpers, Utility classes etc..
 
 
 class Employee {
-    static idCounter = 0;
+    // ===> Example static property
+    static idCounter = 0; // accessed only from the Employee class itself, not its instances
 
     constructor(firstName, lastName, age, salary) {
-        // this.id = ++this.idCounter; // ERROR
-        this.id = ++Employee.idCounter;
+        // this.id = ++this.idCounter; // ERROR - NaN
+        this.id = ++Employee.idCounter; // Assign unique Id
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -22,6 +30,7 @@ class Employee {
         console.log(`${this.firstName} says hello to ${name}`);
     }
 
+    // ===> Example static method
     static getTotalEmployees() {
         return `Total Employees: ${Employee.idCounter}`;
     }
@@ -71,9 +80,22 @@ console.log(StringHelper.truncate("This is very very very very very very very ve
 // This is very very very very very very very very very long string => This is...
 
 
+
 console.log("");
 console.log("============== GET / SET ==============");
+// => *GETTER* is a method that is used to get the value of a specific property. It is invoked without the use of parentheses when the property is accessed
+// => *SETTER* is a method that is used to set the value of a specific property. It is invoked when the property is assigned a new value
 
+// => GETTER SYNTAX: get propertyName() { return this._propertyName; }
+// => SETTER SYNTAX: set propertyName(value) { this._propertyName = value; }
+// => NOTE: The internal property name inside getters and setters is usually prefixed with an UNDERSCORE (_) to avoid naming conflicts (example: this._propertyName).
+
+// => Use cases:
+// 1) data validation
+// 2) encapsulation
+// 3) access control etc...
+
+// ***NOTE*** => Get & Set work under the hood without the need for explicitly creating them. We create them ONLY in cases where we want to do some checks, validations, restrict access.. of some of the properties
 
 class Product {
     static idCounter = 0;
@@ -84,14 +106,16 @@ class Product {
         this.price = price;
     }
 
+    // ===> Getter for price - returns formatted price string
     get price() {
         console.log("HELLO FROM PRICE PROPERTY GETTER");
-        // return this.price;
+        // return this.price; // DON'T FORGET THE UNDERSCORE :D
         return `$${this._price.toFixed(2)}`;
     }
 
+    // Setter for price - ensures price is not negative
     set price(value) {
-        console.log("HELLO FROM PRICE PROPERTY SETTER");
+        console.log("HELLO FROM PRICE PROPERTY SETTER. PRICE TO BE SET =>", value);
         if (value <= 0) {
             console.error("Price cannot be negative or zero !");
             return;
@@ -99,13 +123,14 @@ class Product {
         this._price = value;
     }
 
+    // ===> Making the 'id' property a readonly 
     get id() {
         return this._id;
     }
 
     set id(value) {
         if (!this.id) {
-            console.log(`Id ${value} added`);
+            console.log(`Id ${value} set in the constructor`);
             this._id = value;
         } else {
             console.error("Cannot reassign id value !");

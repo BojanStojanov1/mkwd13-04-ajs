@@ -1,5 +1,11 @@
 console.log("================== CLASSES ==================");
+// => JavaScript was not built with OOP in mind
+// => Objects, prototypes and constructor functions were the way to use OOP in the past
+// => From ES6 forward we have new features specifically designed with OOP in mind
+// => Classes provide a more structured and object-oriented way to define objects compared to traditional constructor functions
+// => They consist of properties, methods, constructor, static members, getters, setters 
 
+// ===> Traditional way, using function constructor
 // function Employee(firstName, lastName, age, salary) {
 //     this.firstName = firstName;
 //     this.lastName = lastName;
@@ -10,19 +16,25 @@ console.log("================== CLASSES ==================");
 //     }
 // }
 
+// ===> Using ES6 class
 class Employee {
     firstName;
     lastName;
     age;
     salary;
 
+    // Constructor
+    // => A special method that runs when an object is created
     constructor(firstName, lastName, age, salary) {
+        // Properties
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.salary = salary;
     }
 
+    // Methods
+    // NOTE: the '()' doesn't imply method execution, it's just a syntax for defining methods in classes
     printInfo() {
         console.log(`Employee: ${this.firstName} ${this.lastName}. Age ${this.age}. Salary ${this.salary}.`);
     }
@@ -40,7 +52,10 @@ bob.greetColleague("John")
 
 console.log("");
 console.log("================== INHERITANCE WITH CLASSES ==================");
+// Inheritance allows a class to extend another class, inheriting its properties and methods
+// The 'extends' keyword is used to create a subclass that inherits from a parent class
 
+// ===> Inheritance using constructor function
 // function Developer(firstName, lastName, age, salary, programmingLanguages) {
 //     // Object.setPrototypeOf(this, new Employee(firstName, lastName, age, salary));
 //     Employee.call(this, firstName, lastName, age, salary);
@@ -50,10 +65,15 @@ console.log("================== INHERITANCE WITH CLASSES ==================");
 //     }
 // }
 
+
+// ===> Inheritance using CLASSES
+// => The 'Developer' class extends 'Employee', meaning it inherits all its properties and methods
+// => Employee is also called a parent class (base class, super class)
 class Developer extends Employee {
     constructor(firstName, lastName, age, salary, programmingLanguages) {
-        super(firstName, lastName, age, salary);
-        this.programmingLanguages = programmingLanguages;
+        // The 'super' function is used to call the constructor of the parent class
+        super(firstName, lastName, age, salary); // Calls the constructor of Employee
+        this.programmingLanguages = programmingLanguages; // Additional property for Developer
     }
 
     code() {
@@ -104,13 +124,16 @@ manager.organizeMeeting();
 const automationTester = new AutomationTester("Test", "Testovski", 32, 3400, 50, "Selenium");
 automationTester.writeAutomationTests();
 
+// ===> Example: Prototypal chain for automation tester instance
 console.log(automationTester.__proto__);
 console.log(automationTester.__proto__.__proto__);
 console.log(automationTester.__proto__.__proto__.__proto__);
 
 
+
 console.log("");
 console.log("=========== Check if an object is an instance of a class ===========");
+// The 'instanceof' operator is used to check whether an object is an instance of a specific class
 
 console.log(dev instanceof Developer); // true
 console.log(dev instanceof Employee); // true
