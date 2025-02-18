@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/app.css" />
+    <script
+      src="https://kit.fontawesome.com/d32ad62e17.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./app.js" type="module" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Todo App</h1>
+      <div class="form-container">
+        <h2>Add Todo</h2>
+        <form class="todo-form">
+          <div class="form-control">
+            <label for="todoText">Todo Text</label>
+            <input name="todoText" id="todoText" required type="text" />
+          </div>
+          <div class="form-control">
+            <label for="todoPriority">Todo Priority</label>
+            <select name="todoPriority" id="todoPriority">
+              <option value="low">Low</option>
+              <option default selected value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <button type="submit" class="submit-btn" id="submitBtn">Add</button>
+        </form>
+      </div>
+      <div class="todos-container">
+        <h2>Todo List</h2>
+        <ul class="todo-list">
+          <li class="todo">
+            <span class="todo-priority">
+              <strong>M</strong>
+              Test out the todo template
+            </span>
+            <span>
+              <button><i class="fa-solid fa-pen-to-square"></i></button>
+              <button><i class="fa-solid fa-trash"></i></button>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </header>
+  </body>
+</html>

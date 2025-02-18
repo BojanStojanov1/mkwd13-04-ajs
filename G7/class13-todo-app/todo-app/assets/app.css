@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Atkinson Hyperlegible Next", sans-serif;
+  font-size: 18px;
+}
+
+.todo-form {
+  margin: 10px;
+  border: 2px solid darkgray;
+  padding: 10px;
+  width: 200px;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.form-control input,
+select {
+  font-size: 18px;
+  padding: 2px;
+  width: 100%;
+}
+
+.submit-btn {
+  font-size: 20px;
+  width: 100px;
+  align-self: center;
+  margin-top: 10px;
+}
+
+.todo-list {
+  list-style: none;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 0;
+  width: 450px;
+}
+
+.todo {
+  padding: 15px;
+  margin: 10px;
+  border: 2px solid darkgray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo button {
+  padding: 3px 5px;
+}
+
+.todo button i {
+  pointer-events: none;
+}
+
+.todo-priority {
+  padding: 5px;
+}
+
+.high {
+  background-color: lightcoral;
+}
+
+.medium {
+  background-color: lightyellow;
+}
+
+.low {
+  background-color: lightblue;
+}
+
+.finished {
+  background-color: lightgreen;
+}
