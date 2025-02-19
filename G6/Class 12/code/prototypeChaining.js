@@ -4,6 +4,8 @@ function BaseInfo(id, name){
     this.name = name;
 }
 
+var base = new BaseInfo(1, "Test");
+
 function Vehicle(id, name, seriesNum, price){
     debugger
     // this.id= id;

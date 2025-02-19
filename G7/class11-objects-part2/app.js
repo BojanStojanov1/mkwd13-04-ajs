@@ -123,6 +123,7 @@ workerOne.printWorkerInfo();
 
 class Programmer extends Professional {
   constructor(firstName, lastName, age, yearsOfExpeience, languages, jobTitle) {
+    //It is going to create an instance of the parent class
     super(firstName, lastName, age, yearsOfExpeience, "IT");
 
     this.languages = languages;
@@ -222,17 +223,58 @@ console.log(Doctor.checkCertification(doctorRisto));
 
 class BankAccount {
   //Private properties can't be read or updated directly with . or =
+  #accountHolder;
   #accountNumber;
+  #balance;
 
-  constructor(accountNumber) {
+  constructor(accountNumber, balance, accountHolder) {
     this.#accountNumber = accountNumber;
+    this.#balance = balance;
+    this.#accountHolder = accountHolder;
+  }
+
+  getAccountHolder() {
+    return this.#accountHolder;
   }
 
   getAccountNumber() {
     return this.#accountNumber;
   }
+
+  updateAccountHolder(newHolder) {
+    if (typeof newHolder !== "string" || newHolder.length < 5) return;
+
+    this.#accountHolder = newHolder;
+  }
+
+  get balance() {
+    console.log("balance getter called");
+    return this.#balance;
+  }
+
+  set balance(newBalance) {
+    console.log("balance setter called");
+
+    if (typeof newBalance !== "number" && !Number.isNaN(Number(newBalance)))
+      return;
+
+    this.#balance = newBalance;
+  }
 }
 
-const accountOne = new BankAccount("1234-5678-9123");
+const accountOne = new BankAccount("1234-5678-9123", 10000, "John Doe");
+
+// console.log(accountOne.#accountNumber);
+
+accountOne.updateAccountHolder("Jane Doe");
+accountOne.updateAccountHolder(undefined); //This will not work
 
 console.log(accountOne.getAccountNumber());
+console.log(accountOne.getAccountHolder());
+// console.log((accountOne.balance = 222));
+
+accountOne.balance = 9999;
+
+accountOne.balance = [];
+
+console.log(accountOne.balance);
