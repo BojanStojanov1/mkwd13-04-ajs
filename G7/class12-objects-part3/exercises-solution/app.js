@@ -87,7 +87,7 @@ class Student extends Person {
 
   study() {
     console.log(
-      `The student ${this.firstName} is studying in the ${this.academyName}`
+      `The student ${this.firstName} is studying in the ${this.academyName} academy`
     );
   }
 }
@@ -107,3 +107,92 @@ console.log(studentOne.getFullName(), studentTwo.getFullName());
 
 studentOne.study();
 studentTwo.study();
+
+//  DesignStudent
+
+// - isStudentOfTheMonth - boolean
+// - attendAdobeExam - method that writes in console: The student firstName is doing an adobe exam!
+
+class DesignStudent extends Student {
+  constructor(firstName, lastName, age, studentId, isStudentOfTheMonth) {
+    super(firstName, lastName, age, "design", studentId);
+
+    this.isStudentOfTheMonth = isStudentOfTheMonth;
+  }
+
+  attendAdobeExam() {
+    console.log(`The student ${this.firstName} is doing an Adobe exam!`);
+  }
+}
+
+const bob = new DesignStudent("Bob", "Bobsky", 23, 4, false);
+
+console.log(bob);
+
+console.log(bob.getFullName());
+
+bob.study();
+bob.attendAdobeExam();
+
+//  CodeStudent
+
+// - hasIndividualProject - boolean (not settable, default is false)
+// - hasGroupProject - boolean (not se ttable, default  is false)
+// - doProject(type) - method that accepts string. If the string is `individual` or `group` it  should write  that the person is working on the project of that type and set the value to `true` on the property of the project
+
+class CodeStudent extends Student {
+  hasIndividualProject = false;
+  hasGroupProject = false;
+
+  constructor(firstName, lastName, age, studentId) {
+    super(firstName, lastName, age, "code", studentId);
+  }
+
+  doProject(type) {
+    if (type === "individual") {
+      console.log("The student is working on an individual project");
+      this.hasIndividualProject = true;
+    }
+
+    if (type === "group") {
+      console.log("The student is working on a group project");
+      this.hasGroupProject = true;
+    }
+  }
+}
+
+const bill = new CodeStudent("Bill", "Gates", 28, 5);
+
+console.log(bill);
+
+bill.study();
+
+bill.doProject("individual");
+bill.doProject("group");
+
+console.log(bill);
+
+//  NetworkStudent
+
+// - academyPart - number
+// - attendCiscoExam - method that writes in console: the student firstNAme is doing a cisco exam!
+
+class NetworkStudent extends Student {
+  constructor(firstName, lastName, age, studentId, academyPart) {
+    super(firstName, lastName, age, "networking", studentId);
+
+    this.academyPart = academyPart;
+  }
+
+  attendCiscoExam() {
+    console.log(`The student ${this.firstName} is doing a cisco exam!`);
+  }
+}
+
+const ted = new NetworkStudent("Ted", "Tedsky", 32, 6, 2);
+
+console.log(ted);
+
+ted.study();
+
+ted.attendCiscoExam();
