@@ -1,16 +1,3 @@
-// Create a class Shape that has:
-// name
-// color
-// position, array of x and y coordinates
-// getArea - method that will only write in the console that there is no special implementation for area
-// getPerimeter - method that will only write in the console that there is no special implementation for perimeter
-// checkPosition - a method that checks if the input is a Shape.
-// If the input is a Shape and if it's x coordinate is in front of this x coordinate, write in console a message
-// If the input is a Shape and if it's y coordinate is in front of this y coordinate, write in console a message
-// If the input is a Shape and if it's x and y coordinates are in front of this x and y coordinates, write in console a message
-// *add method move that is shared among all instances and can be accessed through the class name. It takes a shape as input, logs Moving.. in the console and updates the position of the input, by increasing the coordinates for 5.
-// *create a setter and getter for the color and name property. The setter/getter will log a corresponding message. The setter should do validation.
-
 class Shape{
     constructor(name, color, position){
         this.name = name;
@@ -80,5 +67,49 @@ class Shape{
 
 let shape1 = new Shape("shape1", "red", [5,6]);
 let shape2 = new Shape("shape2", "blue", [2,3]);
+shape1.getArea();
 
 shape1.checkPosition(shape2);//shape1 is this (the object we are working with) and shape2 is shape ( the object that we sent) 
+
+class Rectangle extends Shape{
+    constructor(name, color, position, sideA, sideB){
+        super(name, color, position); //calls the parent constructotr
+       //specific properties of rectangle
+        this.sideA = sideA;
+        this.sideB = sideB;
+    }
+
+    //override the methods with concrete implementation
+    getArea(){
+       return this.sideA * this.sideB;
+    }
+
+    getPerimeter(){
+        return 2*this.sideA + 2*this.sideB;
+    }
+}
+
+let rectangle = new Rectangle("rectangle", "blue", [2,3], 3, 5);
+console.log(rectangle);
+console.log(rectangle.getArea());
+
+const pi = 3.14; //we are using const because we cannot change the value of pi
+class Circle extends Shape{
+    constructor(name, color, position, radius){
+        super(name, color, position);
+        this.radius = radius;
+       // this.pi = 3.14;
+    }
+    //override the methods with concrete implementation
+    getArea(){
+        return this.radius * this.radius * pi;
+    }
+
+    getPerimeter(){
+        return 2 * this.radius * pi;
+    }
+}
+
+let circle = new Circle("circle", "red", [4,5], 5);
+console.log(circle);
+console.log(circle.getArea());
