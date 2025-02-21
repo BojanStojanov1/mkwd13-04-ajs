@@ -11,19 +11,18 @@ const app = () => {
   const submitBtn = document.querySelector("#submitBtn");
 
   //Data Variables
-  let todos = [];
+  let todoList = [
+    new Todo("First One", "low"),
+    new Todo("Second One", "medium"),
+  ];
 
   let editTodoId = "";
 
-  console.log(todos);
-
   //Functions
   const renderTodos = element => {
-    console.log(todos);
-
     element.innerHTML = "";
 
-    todos.forEach(todo => {
+    todoList.forEach(todo => {
       //1. Create an html element
       const todoEl = document.createElement("li");
       todoEl.classList.add("todo", todo.priority);
@@ -47,45 +46,22 @@ const app = () => {
            </span>`;
       //3. Append that element to the parent element
 
-      todoEl.addEventListener("click", event => {
-        console.log(event.target.id);
-
-        if (event.target.id.includes("finish")) todo.finishTodo();
-
-        if (event.target.id.includes("delete")) {
-          todos = todos.filter(t => t.id !== todo.id);
-          console.log(todos);
-        }
-
-        if (event.target.id.includes("edit")) {
-          onEditTodo(todo);
-        }
-
-        renderTodos(todos, todoListEl);
-      });
-
-      addListener(todo, todoEl);
+      addTodoListener(todo, todoEl);
 
       element.appendChild(todoEl);
     });
   };
 
-  const addListener = (todo, todoEl) => {
+  const addTodoListener = (todo, todoEl) => {
     todoEl.addEventListener("click", event => {
-      console.log(event.target.id);
-
       if (event.target.id.includes("finish")) todo.finishTodo();
 
-      if (event.target.id.includes("delete")) {
-        todos = todos.filter(t => t.id !== todo.id);
-        console.log(todos);
-      }
+      if (event.target.id.includes("delete"))
+        todoList = todoList.filter(t => t.id !== todo.id);
 
-      if (event.target.id.includes("edit")) {
-        onEditTodo(todo);
-      }
+      if (event.target.id.includes("edit")) onEditTodo(todo);
 
-      renderTodos(todos, todoListEl);
+      renderTodos(todoListEl);
     });
   };
 
@@ -108,10 +84,10 @@ const app = () => {
 
     if (!editTodoId) {
       const newTodo = new Todo(todoText, todoPriority);
-      todos.push(newTodo);
+      todoList.push(newTodo);
     } else {
       //Update the todo that we are editing in the todo list
-      todos.forEach(todo => {
+      todoList.forEach(todo => {
         if (todo.id === editTodoId) {
           todo.updateTodo(todoText, todoPriority);
         }
@@ -120,8 +96,6 @@ const app = () => {
       editTodoId = "";
       submitBtn.innerText = "Add";
     }
-
-    console.log(todos);
 
     renderTodos(todoListEl);
 
