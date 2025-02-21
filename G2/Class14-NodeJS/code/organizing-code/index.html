@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizing Code</title>
+</head>
+
+<body>
+    <h1>Organizing Code</h1>
+
+    <!-- ===== BAD WAY ===== -->
+    <!-- ISSUES: scripts loading order, overcrowding global scope, difficult to maintain and scale etc... -->
+    <!-- <script src="models/user.js"></script> -->
+    <!-- <script src="services/logger-service.js"></script> -->
+    <!-- <script src="services/user-service.js"></script> -->
+    <!-- <script src="app.js"></script> -->
+
+    <!-- ===== GOOD WAY ===== -->
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>
