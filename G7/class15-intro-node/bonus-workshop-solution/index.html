@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="app.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Country Search</h1>
+    </header>
+    <main>
+      <section class="form-container">
+        <div class="form-control search-form">
+          <input type="text" id="searchInput" placeholder="search..." />
+          <button id="searchBtn">Search</button>
+        </div>
+      </section>
+      <section class="form-container">
+        <button id="europeBtn">Get European Countries</button>
+        <button id="neighbourBtn">Get Macedonia Neighbours</button>
+        <button id="macedoniaBtn">Get Macedonia</button>
+      </section>
+      <section class="cards-container">Please search to see results</section>
+      <section class="spinner-container hide">
+        <div class="pin"></div>
+        <div class="pulse"></div>
+      </section>
+    </main>
+  </body>
+</html>
